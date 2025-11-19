@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../widgets/button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,34 +23,20 @@ class HomePage extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
 
-              const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    print('Game 1 Selected!');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff6BCB77),
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    )
-                  ),
-                  child: const Text(
-                    "Math",
-                    style: TextStyle(fontSize: 20,color: Colors.white, fontFamily: 'Itim'),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 30),
-              
+              const SizedBox(height: 10),
+              GameButton(text: "Math", color: Color(0xff6BCB77)),
+              const SizedBox(height: 10),
+              GameButton(text: "Memory", color: Color(0xff5BC0EB)),
+              const SizedBox(height: 10),
+              GameButton(text: "Logic", color: Color(0xffFF9F1C)),
             ],
           ),
         ),
       ),
     );
   }
+
+
 
   AppBar appBar() {
     return AppBar( 
