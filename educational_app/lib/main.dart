@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'widgets/navigation.dart';
 import 'pages/home.dart'; 
 import 'pages/games.dart';
-// import other pages here...
 
 void main() {
   runApp(const MyApp());
@@ -12,10 +11,10 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyApp> createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   int currentIndex = 0;
 
   // Pages list

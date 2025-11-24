@@ -1,6 +1,8 @@
+import 'package:curious_bear/pages/math.dart';
+import 'package:curious_bear/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/button.dart';
+
 
 class GamePage extends StatelessWidget {
   const GamePage({super.key});
@@ -24,78 +26,15 @@ class GamePage extends StatelessWidget {
               ),
 
               const SizedBox(height: 10),
-              GameButton(text: "Math", color: Color(0xff6BCB77)),
+              GameButton(text: "Math", color: Color(0xff6BCB77), gamePage: MathPage()),
               const SizedBox(height: 10),
-              GameButton(text: "Memory", color: Color(0xff5BC0EB)),
+              GameButton(text: "Memory", color: Color(0xff5BC0EB), gamePage: Placeholder()),
               const SizedBox(height: 10),
-              GameButton(text: "Logic", color: Color(0xffFF9F1C)),
+              GameButton(text: "Logic", color: Color(0xffFF9F1C), gamePage: Placeholder()),
             ],
           ),
         ),
       ),
-    );
-  }
-
-
-
-  AppBar appBar() {
-    return AppBar( 
-      toolbarHeight: 98,
-      title: Text(
-        'Curious Bear',
-        style: TextStyle(
-          color: Color(0xff3A2A1E),
-          fontSize: 40,
-          fontWeight: FontWeight.normal,
-          fontFamily: 'Itim',
-        ),
-      ),
-      backgroundColor: Color(0xffFFE9C4),
-      centerTitle: true,
-      elevation: 0.0,
-
-      leading: GestureDetector(
-        onTap: () {
-
-        },
-        child: Container(
-          margin: EdgeInsets.only(left: 10.0),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: SvgPicture.asset(
-            'assets/icons/button_back.svg',
-            height: 20,
-            width: 20,
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 30.0),
-          child: Container(
-            width: 40,
-            height: 40,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Color(0xff3A2A1E),
-              shape: BoxShape.circle,
-            ),
-            child: IconButton(
-              onPressed: () {
-                print('Settings button pressed!');
-              },
-              icon: Icon(
-                Icons.settings,
-                color: Color(0xffFFE9C4),
-                size: 20.0,
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

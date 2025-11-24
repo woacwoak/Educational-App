@@ -1,14 +1,19 @@
+import 'package:curious_bear/main.dart';
+import 'package:curious_bear/pages/math.dart';
 import 'package:flutter/material.dart';
 
 class GameButton extends StatelessWidget{
   final String text;
   final Color color;
 
+  final Widget gamePage;
+
   //Constructor
   const GameButton({
     super.key,
     required this.text,
-    required this.color
+    required this.color,
+    required this.gamePage,
   });
 
   //Method
@@ -18,7 +23,11 @@ class GameButton extends StatelessWidget{
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: ElevatedButton(
         onPressed: () {
-          print('$text Game Selected!');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => gamePage),//how to transition to different game pages based on game selected
+            
+          );
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: color,

@@ -1,3 +1,4 @@
+import 'package:curious_bear/main.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -38,7 +39,10 @@ class HomePage extends StatelessWidget {
                     Padding(padding:  EdgeInsets.symmetric(horizontal: 20.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          print('Get Started Pressed!');
+                          final appState = context.findAncestorStateOfType<MyAppState>();
+                          appState?.setState(() {
+                            appState.currentIndex = 1;
+                          });
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xff6BCB77),
