@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../widgets/button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,99 +6,67 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              color: Color(0xffFFF2D9),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Curious Bear',
+                      style: TextStyle(
+                        color: Color(0xff3A2A1E),
+                        fontSize: 60,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Itim'
+                        ),
+                      ),
+                    Text(
+                      "Play, Learn, Grow!",
+                      style: TextStyle(
+                        color: Color(0xffB97B38),
+                        fontSize: 42,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Itim'
+                      ),
+                    ),
+                    SizedBox(height: 25),
+                    Padding(padding:  EdgeInsets.symmetric(horizontal: 20.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          print('Get Started Pressed!');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xff6BCB77),
+                          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 130),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          )
+                        ),
+                        child: Text(  
+                          "Play",
+                          style: TextStyle(
+                            fontSize: 36,
+                             color: Colors.white,
+                             fontFamily: 'Itim'
+                          ),
+                        ),
+                      )
+                      
 
-      body: Container(
-        color: Color(0xffFFF2D9),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Image.asset(
-                'assets/images/bear_games.png',
-                width: 400,
-                fit: BoxFit.contain,
-              ),
-
-              const SizedBox(height: 10),
-              GameButton(text: "Math", color: Color(0xff6BCB77)),
-              const SizedBox(height: 10),
-              GameButton(text: "Memory", color: Color(0xff5BC0EB)),
-              const SizedBox(height: 10),
-              GameButton(text: "Logic", color: Color(0xffFF9F1C)),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-
-
-  AppBar appBar() {
-    return AppBar( 
-      toolbarHeight: 98,
-      title: Text(
-        'Curious Bear',
-        style: TextStyle(
-          color: Color(0xff3A2A1E),
-          fontSize: 40,
-          fontWeight: FontWeight.normal,
-          fontFamily: 'Itim',
-        ),
-      ),
-      backgroundColor: Color(0xffFFE9C4),
-      centerTitle: true,
-      elevation: 0.0,
-
-      leading: GestureDetector(
-        onTap: () {
-
-        },
-        child: Container(
-          margin: EdgeInsets.only(left: 10.0),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: SvgPicture.asset(
-            'assets/icons/button_back.svg',
-            height: 20,
-            width: 20,
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 30.0),
-          child: Container(
-            width: 40,
-            height: 40,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Color(0xff3A2A1E),
-              shape: BoxShape.circle,
-            ),
-            child: IconButton(
-              onPressed: () {
-                print('Settings button pressed!');
-              },
-              icon: Icon(
-                Icons.settings,
-                color: Color(0xffFFE9C4),
-                size: 20.0,
+                      
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
-
-
-
-
-
   }
 }

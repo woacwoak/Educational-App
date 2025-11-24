@@ -62,6 +62,11 @@ flutter:
   assets:
     - assets/icons/button_back.svg
     - assets/images/bear_games.png
+    # Icons for navigation bar
+    - assets/navigation_icons/Home.svg
+    - assets/navigation_icons/Joystick.svg
+    - assets/navigation_icons/Gear.svg
+    - assets/navigation_icons/Star.svg
 
   #   - images/a_dot_ham.jpeg
 
