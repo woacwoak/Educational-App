@@ -55,10 +55,18 @@ class HomePage extends StatelessWidget {
                              fontFamily: 'Itim'
                           ),
                         ),
-                      )
-                      
+                      ),
+                    ),
+                      SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child:
+                          Image.asset(
+                            'assets/images/bear_home.png',
+                            width: 400,
+                            fit: BoxFit.contain,
+                            ),
 
-                      
                     ),
                   ],
                 ),
