@@ -78,6 +78,12 @@ flutter:
     - assets/images/square.svg
     - assets/images/triangle.svg
     - assets/images/star.svg
+    # Icons for games
+    - assets/icons/Math.svg
+    - assets/icons/Brain.svg
+    - assets/icons/Bulb.svg
+    
+
 
 
   #   - images/a_dot_ham.jpeg
