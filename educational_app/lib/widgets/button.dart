@@ -1,5 +1,3 @@
-import 'package:curious_bear/main.dart';
-import 'package:curious_bear/pages/math.dart';
 import 'package:flutter/material.dart';
 
 class GameButton extends StatelessWidget{

@@ -2,37 +2,59 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:curious_bear/widgets/custom_app_bar.dart';
 
-class AnswerButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final String answer;
 
-  const AnswerButton({
-    super.key,
-    required this.onPressed,
-    required this.answer,
-  });
+class MathPage extends StatefulWidget {
+  const MathPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Color(0xff6BCB77),
-        minimumSize: Size(double.infinity, 20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-      ),
-      child: Text(
-        answer,
-        style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Itim'),
-      ),
-    );
-  }
+  State<MathPage> createState() => _MathPageState();
 }
 
-class MathPage extends StatelessWidget {
-  const MathPage({super.key});
+class _MathPageState extends State<MathPage> {
+  late int num1;
+  late int num2;
+  late int correctAnswer;
+  late List<int> answers = [];
+
+  @override
+  void initState() {
+    super.initState();
+    generateQuestion();
+  }
+
+  void generateQuestion() {
+    final random = Random();
+    num1 = random.nextInt(10);
+    num2 = random.nextInt(10);
+    correctAnswer = num1 + num2;
+
+    answers = [correctAnswer];
+
+    while (answers.length < 4) {
+      answers.add(random.nextInt(20));
+    }
+
+    answers.shuffle();
+  }
+  void onAnswerSelected(int answer) {
+    if (answer == correctAnswer) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Correct!')),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Try again!')),
+      );
+    }
+    setState((){
+      generateQuestion();
+    });
+}
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +83,7 @@ class MathPage extends StatelessWidget {
                   ],
                 ),
               child: Text(
-                '5 + 3 = ?',
+                '$num1 + $num2 = ?',
                 style: TextStyle(
                   fontSize: 96,
                   fontWeight: FontWeight.bold,
@@ -83,20 +105,46 @@ class MathPage extends StatelessWidget {
                 mainAxisSpacing: 22,
                 crossAxisSpacing: 30,
                 children: [
-                  AnswerButton(answer: Random().nextInt(10).toString(), onPressed: (){}),
-                  AnswerButton(answer: Random().nextInt(10).toString(), onPressed: (){}),
-                  AnswerButton(answer: "8", onPressed: (){}),
-                  AnswerButton(answer: Random().nextInt(10).toString(), onPressed: (){}),
+                for (var answer in answers)
+                  AnswerButton(
+                    answer: answer.toString(),
+                    onPressed: () => onAnswerSelected(answer),
+                  ),
                 ],
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+}
 
+class AnswerButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String answer;
 
+  const AnswerButton({
+    super.key,
+    required this.onPressed,
+    required this.answer,
+  });
 
-
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xff6BCB77),
+        minimumSize: Size(double.infinity, 20),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
+      child: Text(
+        answer,
+        style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Itim'),
+      ),
     );
   }
 }
