@@ -69,6 +69,11 @@ flutter:
     - assets/navigation_icons/Joystick.svg
     - assets/navigation_icons/Gear.svg
     - assets/navigation_icons/Star.svg
+    # Images for logic page
+    - assets/images/logic_problem1.svg
+    - assets/images/logic_problem2.svg
+    - assets/images/logic_problem3.svg
+
 
   #   - images/a_dot_ham.jpeg
 

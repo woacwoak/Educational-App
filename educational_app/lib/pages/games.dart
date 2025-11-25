@@ -2,6 +2,7 @@ import 'package:curious_bear/pages/math.dart';
 import 'package:curious_bear/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/button.dart';
+import 'package:curious_bear/pages/logic.dart'; 
 
 
 class GamePage extends StatelessWidget {
@@ -30,7 +31,7 @@ class GamePage extends StatelessWidget {
               const SizedBox(height: 10),
               GameButton(text: "Memory", color: Color(0xff5BC0EB), gamePage: Placeholder()),
               const SizedBox(height: 10),
-              GameButton(text: "Logic", color: Color(0xffFF9F1C), gamePage: Placeholder()),
+              GameButton(text: "Logic", color: Color(0xffFF9F1C), gamePage: LogicPage()),
             ],
           ),
         ),
