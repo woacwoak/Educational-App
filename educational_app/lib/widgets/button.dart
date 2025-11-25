@@ -16,7 +16,6 @@ class GameButton extends StatelessWidget{
     required this.gamePage,
   });
 
-  //Method
   @override
   Widget build(BuildContext context){
     return Padding(
@@ -26,7 +25,6 @@ class GameButton extends StatelessWidget{
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => gamePage),//how to transition to different game pages based on game selected
-            
           );
         },
         style: ElevatedButton.styleFrom(

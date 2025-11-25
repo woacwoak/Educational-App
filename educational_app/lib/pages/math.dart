@@ -39,11 +39,11 @@ class _MathPageState extends State<MathPage> {
   void onAnswerSelected(int answer) {
     if (answer == correctAnswer) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Correct!'), duration: Duration(milliseconds: 100), behavior: SnackBarBehavior.floating),
+        SnackBar(content: Text('Correct!'), duration: Duration(milliseconds: 200), behavior: SnackBarBehavior.floating),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Try again!'), duration: Duration(milliseconds: 100), behavior: SnackBarBehavior.floating),
+        SnackBar(content: Text('Try again!'), duration: Duration(milliseconds: 200), behavior: SnackBarBehavior.floating),
       );
     }
     setState((){
@@ -59,7 +59,7 @@ class _MathPageState extends State<MathPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: appBar(context),
       backgroundColor: Color(0xffFFF2D9),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

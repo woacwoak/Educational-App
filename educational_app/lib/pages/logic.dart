@@ -34,7 +34,7 @@ class _LogicPageState extends State<LogicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: appBar(context),
       backgroundColor: Color(0xffFFF2D9),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -1,63 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../main.dart';
 
-AppBar appBar() {
-return AppBar( 
-  toolbarHeight: 98,
-  title: Text(
-    'Curious Bear',
-    style: TextStyle(
-      color: Color(0xff3A2A1E),
-      fontSize: 40,
-      fontWeight: FontWeight.normal,
-      fontFamily: 'Itim',
-    ),
-  ),
-  backgroundColor: Color(0xffFFE9C4),
-  centerTitle: true,
-  elevation: 0.0,
+AppBar appBar(BuildContext context) {
 
-  leading: GestureDetector(
-    onTap: () {
+  return AppBar(
+    toolbarHeight: 98,
+    backgroundColor: const Color(0xffFFE9C4),
+    centerTitle: true,
+    elevation: 0.0,
 
-    },
-    child: Container(
-      margin: EdgeInsets.only(left: 10.0),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: SvgPicture.asset(
-        'assets/icons/button_back.svg',
-        height: 20,
-        width: 20,
-        fit: BoxFit.fill,
+    title: const Text(
+      'Curious Bear',
+      style: TextStyle(
+        color: Color(0xff3A2A1E),
+        fontSize: 40,
+        fontFamily: 'Itim',
       ),
     ),
-  ),
-  actions: [
-    Padding(
-      padding: const EdgeInsets.only(right: 30.0),
-      child: Container(
-        width: 40,
-        height: 40,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Color(0xff3A2A1E),
-          shape: BoxShape.circle,
+
+    leading: Padding(
+      padding: const EdgeInsets.only(left:10),
+      child: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: SvgPicture.asset(
+          'assets/icons/button_back.svg',
+          height: 20,
+          width: 20,
+          fit: BoxFit.contain,
         ),
-        child: IconButton(
-          onPressed: () {
-            print('Settings button pressed!');
-          },
-          icon: Icon(
-            Icons.settings,
-            color: Color(0xffFFE9C4),
-            size: 20.0,
+      ),
+    ),
+
+    actions: [
+      Padding(
+        padding: const EdgeInsets.only(right: 20.0),
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: const BoxDecoration(
+            color: Color(0xff3A2A1E),
+            shape: BoxShape.circle,
+          ),
+          child: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Placeholder()), // Replace with SettingsPage()
+              );
+            },
+            icon: const Icon(
+              Icons.settings,
+              size: 20,
+              color: Color(0xffFFE9C4),
+            ),
           ),
         ),
       ),
-    ),
-  ],
-);
+    ],
+  );
 }

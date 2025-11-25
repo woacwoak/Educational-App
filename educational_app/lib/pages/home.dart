@@ -1,4 +1,5 @@
-import 'package:curious_bear/main.dart';
+import 'package:curious_bear/pages/games.dart';
+import 'package:curious_bear/widgets/navigation.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,6 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: AppNavigationBar(),
       body: Column(
         children: [
           Expanded(
@@ -17,6 +19,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(height: 50),
                     Text(
                       'Curious Bear',
                       style: TextStyle(
@@ -39,10 +42,10 @@ class HomePage extends StatelessWidget {
                     Padding(padding:  EdgeInsets.symmetric(horizontal: 20.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          final appState = context.findAncestorStateOfType<MyAppState>();
-                          appState?.setState(() {
-                            appState.currentIndex = 1;
-                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => GamePage()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xff6BCB77),
