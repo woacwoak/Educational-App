@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:curious_bear/pages/settings.dart';
 
-AppBar appBar(BuildContext context) {
+AppBar appBar(BuildContext context, String title) {
 
   return AppBar(
     toolbarHeight: 98,
@@ -10,8 +10,8 @@ AppBar appBar(BuildContext context) {
     centerTitle: true,
     elevation: 0.0,
 
-    title: const Text(
-      'Curious Bear',
+    title: Text(
+      title,
       style: TextStyle(
         color: Color(0xff3A2A1E),
         fontSize: 40,

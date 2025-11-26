@@ -12,7 +12,7 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context),
+      appBar: appBar(context, "Games"),
       bottomNavigationBar: AppNavigationBar(),
       body: Container(
         color: Color(0xffFFF2D9),

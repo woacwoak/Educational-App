@@ -59,7 +59,7 @@ class _MathPageState extends State<MathPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context),
+      appBar: appBar(context, "Math"),
       backgroundColor: Color(0xffFFF2D9),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
