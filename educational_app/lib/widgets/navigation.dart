@@ -1,5 +1,6 @@
 import 'package:curious_bear/pages/games.dart';
 import 'package:curious_bear/pages/home.dart';
+import 'package:curious_bear/pages/progress.dart';
 import 'package:curious_bear/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -62,7 +63,7 @@ class AppNavigationBar extends StatelessWidget {
               height: 40,
             ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Placeholder()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const ProgressPage()));
             },
           ),
           label: '',

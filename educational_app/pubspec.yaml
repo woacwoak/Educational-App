@@ -89,6 +89,8 @@ flutter:
     # Icons for Settings Page
     - assets/icons/music.svg
     - assets/icons/sound.svg
+    # Image for Progress Page
+    - assets/images/badge.png
     
 
 
