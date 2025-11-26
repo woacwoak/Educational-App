@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../main.dart';
+import 'package:curious_bear/pages/settings.dart';
 
 AppBar appBar(BuildContext context) {
 
@@ -48,7 +48,7 @@ AppBar appBar(BuildContext context) {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Placeholder()), // Replace with SettingsPage()
+                MaterialPageRoute(builder: (context) => const SettingsPage()),
               );
             },
             icon: const Icon(

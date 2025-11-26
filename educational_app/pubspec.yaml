@@ -82,6 +82,8 @@ flutter:
     - assets/icons/Math.svg
     - assets/icons/Brain.svg
     - assets/icons/Bulb.svg
+    # Image for Settings Page
+    - assets/images/honeycomb.png
     
 
 
