@@ -18,13 +18,14 @@ class ProgressPage extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(top:40),
+            padding: EdgeInsets.only(top:20),
             child: Image.asset(
               "assets/images/badge.png",
+              width: 150,
               fit: BoxFit.contain,
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Text(
             "Completed games",
             style: TextStyle(

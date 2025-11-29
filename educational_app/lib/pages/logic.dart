@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:curious_bear/widgets/navigation.dart';
 import "package:flutter/material.dart";
 import 'package:curious_bear/widgets/custom_app_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -35,6 +36,7 @@ class _LogicPageState extends State<LogicPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(context, "Logic"),
+      bottomNavigationBar: AppNavigationBar(),
       backgroundColor: Color(0xffFFF2D9),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

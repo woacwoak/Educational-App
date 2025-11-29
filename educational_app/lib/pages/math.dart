@@ -1,6 +1,8 @@
 import 'dart:math';
+import 'package:curious_bear/widgets/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:curious_bear/widgets/custom_app_bar.dart';
+
 
 
 class MathPage extends StatefulWidget {
@@ -60,6 +62,7 @@ class _MathPageState extends State<MathPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(context, "Math"),
+      bottomNavigationBar: AppNavigationBar(),
       backgroundColor: Color(0xffFFF2D9),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
