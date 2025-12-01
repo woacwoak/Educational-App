@@ -94,6 +94,13 @@ flutter:
     - assets/images/badge.png
     # Images for Memory Game
     - assets/images/card_front.png
+    # Fruits for Memory Game
+    - assets/images/blackberry.png
+    - assets/images/blueberry.png
+    - assets/images/cherries.png
+    - assets/images/grape.png
+    - assets/images/raspberry.png
+    - assets/images/strawberry.png
 
 
 
