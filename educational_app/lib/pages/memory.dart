@@ -28,6 +28,28 @@ class _MemoryPageState extends State<MemoryPage>{
     _generateCards();
   }
 
+  void resetGame() {
+  setState(() {
+    // Reset match tracking
+    matched = List.filled(12, false);
+    firstIndex = null;
+    secondIndex = null;
+    wait = false;
+
+    // Regenerate and reshuffle cards
+    _generateCards();
+
+    // Flip all cards back to front
+    for (var controller in controllers) {
+      if (controller.state?.isFront == false) {
+        controller.flipcard();
+      }
+    }
+  });
+
+  Navigator.pop(context); // Close dialog
+}
+
   void _generateCards() {
     List<String> fruits = [
       "assets/images/blackberry.png",
@@ -86,19 +108,24 @@ class _MemoryPageState extends State<MemoryPage>{
         content: Text("All pairs matched!"),
         actions: [
           TextButton(
+            onPressed: resetGame,
+            child: const Text("🔄 Restart"),
+          ),
+          TextButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => GamePage()),
               );
-              
             },
             child: Text("Play other games"),
-          )
+          ),
+          
         ],
       );
     },
   );
+
 }
 
 
