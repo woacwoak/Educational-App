@@ -1,5 +1,4 @@
 import 'package:curious_bear/pages/games.dart';
-import 'package:curious_bear/pages/math.dart';
 import 'package:curious_bear/widgets/custom_app_bar.dart';
 import 'package:curious_bear/widgets/navigation.dart';
 import 'package:flutter/material.dart';
@@ -136,17 +135,17 @@ class _MemoryPageState extends State<MemoryPage>{
       bottomNavigationBar: AppNavigationBar(),
       backgroundColor: Color(0xffFFF2D9),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+        padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
         child: GridView.count(
         crossAxisCount: 3,
         childAspectRatio: 1,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 20,
         children: List.generate(12, (index) {
           return Center(
             child: SizedBox(
-              height: 110,
-              width: 110,
+              height: double.infinity,
+              width: double.infinity,
               child: GestureDetector(
                 onTap: () => _handleCardTap(index),
                 child: FlipCard(

@@ -41,14 +41,14 @@ class _LogicPageState extends State<LogicPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 15),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: FittedBox(
               fit: BoxFit.contain,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 70),
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
                 decoration: BoxDecoration(
                   color: Color(0xffFFD580),
                   borderRadius: BorderRadius.circular(10),
@@ -70,8 +70,6 @@ class _LogicPageState extends State<LogicPage> {
             ),
             )
           ),
-
-          SizedBox(height: 10),
 
           Expanded(
             flex: 2,

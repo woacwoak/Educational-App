@@ -72,7 +72,7 @@ class _MathPageState extends State<MathPage> {
             child: FittedBox(
               fit: BoxFit.contain,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 25),
                 decoration: BoxDecoration(
                   color: Color(0xffE3F4D7),
                   borderRadius: BorderRadius.circular(10),
@@ -101,7 +101,7 @@ class _MathPageState extends State<MathPage> {
           Expanded(
             flex: 2,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               child: GridView.count(
                 crossAxisCount: 2,
                 childAspectRatio: 1.2,
