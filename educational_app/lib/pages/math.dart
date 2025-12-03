@@ -3,8 +3,6 @@ import 'package:curious_bear/widgets/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:curious_bear/widgets/custom_app_bar.dart';
 
-
-
 class MathPage extends StatefulWidget {
   const MathPage({super.key});
 
@@ -16,7 +14,7 @@ class _MathPageState extends State<MathPage> {
   late int num1;
   late int num2;
   late int correctAnswer;
-  late List<int> answers = [];
+  late List<int> answers;
 
   @override
   void initState() {
@@ -38,108 +36,114 @@ class _MathPageState extends State<MathPage> {
 
     answers.shuffle();
   }
+
   void onAnswerSelected(int answer) {
-    if (answer == correctAnswer) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Correct!'),
-          duration: Duration(milliseconds: 200),
-          behavior: SnackBarBehavior.floating,
-          backgroundColor: Colors.green,),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Try again!'),
-          duration: Duration(milliseconds: 200),
-          behavior: SnackBarBehavior.floating,
-          backgroundColor: Colors.red,
-          ),
-      );
-    }
-    setState((){
-      generateQuestion();
-    });
-}
+    bool isCorrect = answer == correctAnswer;
 
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(isCorrect ? 'Correct!' : 'Try again!'),
+        duration: const Duration(milliseconds: 200),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: isCorrect ? Colors.green : Colors.red,
+      ),
+    );
 
-
-
-
+    setState(() => generateQuestion());
+  }
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
+    // Responsive sizes
+    final questionFontSize = width * 0.18;
+    final answerFontSize = width * 0.14;
+
     return Scaffold(
       appBar: appBar(context, "Math"),
       bottomNavigationBar: AppNavigationBar(),
-      backgroundColor: Color(0xffFFF2D9),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 15),
-          Expanded(
-            child: FittedBox(
-              fit: BoxFit.contain,
+      backgroundColor: const Color(0xffFFF2D9),
+
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: width * 0.08),
+        child: Column(
+          children: [
+
+            SizedBox(height: height * 0.02),
+
+            //Question
+            Expanded(
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 25),
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(vertical: height * 0.02),
+                padding: EdgeInsets.symmetric(
+                  horizontal: width * 0.04,
+                  vertical: height * 0.02,
+                ),
                 decoration: BoxDecoration(
-                  color: Color(0xffE3F4D7),
+                  color: const Color(0xffE3F4D7),
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 10,
-                      offset: Offset(0, 0),
+                      offset: Offset.zero,
                     ),
-                  ],
-                ),
-              child: Text(
-                '$num1 + $num2 = ?',
-                style: TextStyle(
-                  fontSize: 96,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff4C4A2E),
+                    ],
+                  ),
+                  child: Text(
+                    "$num1 + $num2 = ?",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: questionFontSize,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xff4C4A2E),
+                    ),
+                  ),
                 ),
               ),
-              ),
-            ),
-          ),
-          SizedBox(height: 10),
 
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            SizedBox(height: height * 0.01),
+
+            //Answers Grid
+            Expanded(
+              flex: 2,
               child: GridView.count(
                 crossAxisCount: 2,
+                mainAxisSpacing: height * 0.03,
+                crossAxisSpacing: width * 0.05,
                 childAspectRatio: 1.2,
-                mainAxisSpacing: 22,
-                crossAxisSpacing: 30,
                 children: [
-                for (var answer in answers)
-                  AnswerButton(
-                    answer: answer.toString(),
-                    onPressed: () => onAnswerSelected(answer),
-                  ),
+                  for (var ans in answers)
+                    AnswerButton(
+                      answer: ans.toString(),
+                      fontSize: answerFontSize,
+                      onPressed: () => onAnswerSelected(ans),
+                    )
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
+
 class AnswerButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String answer;
+  final double fontSize;
 
   const AnswerButton({
     super.key,
-    required this.onPressed,
     required this.answer,
+    required this.fontSize,
+    required this.onPressed,
   });
 
   @override
@@ -147,15 +151,20 @@ class AnswerButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color(0xff6BCB77),
-        minimumSize: Size(double.infinity, 20),
+        backgroundColor: const Color(0xff6BCB77),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
       ),
-      child: Text(
-        answer,
-        style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Itim'),
+      child: FittedBox(
+        child: Text(
+          answer,
+          style: TextStyle(
+            fontSize: fontSize,
+            fontFamily: 'Itim',
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }
