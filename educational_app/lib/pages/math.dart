@@ -41,11 +41,20 @@ class _MathPageState extends State<MathPage> {
   void onAnswerSelected(int answer) {
     if (answer == correctAnswer) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Correct!'), duration: Duration(milliseconds: 200), behavior: SnackBarBehavior.floating),
+        SnackBar(
+          content: Text('Correct!'),
+          duration: Duration(milliseconds: 200),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.green,),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Try again!'), duration: Duration(milliseconds: 200), behavior: SnackBarBehavior.floating),
+        SnackBar(
+          content: Text('Try again!'),
+          duration: Duration(milliseconds: 200),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.red,
+          ),
       );
     }
     setState((){
